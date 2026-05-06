@@ -593,7 +593,8 @@ to { opacity: 1; transform: translateY(0); }
 // ── Question bank ──────────────────────────────────────────────
 const sections = [
   {
-    label: "🌟 Who You Are",
+    label: "Who You Are",
+    icon: "🌟",
     questions: [
       {
         id: "energy",
@@ -642,7 +643,8 @@ const sections = [
     ]
   },
   {
-    label: "💡 What You Love",
+    label: "What You Love",
+    icon: "💡",
     questions: [
       {
         id: "subjects",
@@ -691,7 +693,8 @@ const sections = [
     ]
   },
   {
-    label: "🚫 What You Don't Like",
+    label: "What You Don't Like",
+    icon: "🚫",
     questions: [
       {
         id: "dislikes",
@@ -729,7 +732,8 @@ const sections = [
     ]
   },
   {
-    label: "🔭 Your Future Self",
+    label: "Your Future Self",
+    icon: "🔭",
     questions: [
       {
         id: "workEnv",
@@ -790,19 +794,20 @@ function getTotalAnswered() {
 
 // ── Render ─────────────────────────────────────────────────────
 function render() {
+  try {
   const q = getQuestion();
   const section = sections[currentSection];
   const answered = getTotalAnswered();
   const pct = Math.round((answered / totalQuestions) * 100);
 
   document.getElementById('progressWrap').style.display = 'block';
-  document.getElementById('progressLabel').textContent = `${section.label} • Q${currentQuestion + 1} of ${section.questions.length}`;
+  document.getElementById('progressLabel').textContent = `${section.icon} ${section.label} • Q${currentQuestion + 1} of ${section.questions.length}`;
   document.getElementById('progressPct').textContent = `${pct}%`;
   document.getElementById('progressFill').style.width = pct + '%';
 
   const val = answers[q.id];
   let html = `<div class="question-card fade-in">
-    <div class="section-label">${section.label}</div>
+    <div class="section-label">${section.icon} ${section.label}</div>
     <div class="question-text">${q.text}</div>
     ${q.sub ? `<div class="question-sub">${q.sub}</div>` : ''}`;
 
@@ -841,6 +846,10 @@ html += `<button class="btn-next" onclick="goNext()" id="nextBtn">${isLast ? '�
 html += `</div></div>`;
 
 document.getElementById(‘quizArea’).innerHTML = html;
+} catch(e) {
+document.getElementById(‘quizArea’).innerHTML = `<div class="question-card"><p style="color:red;font-size:13px">Error: ${e.message}</p></div>`;
+console.error(e);
+}
 }
 
 function selectSingle(id, value) {
