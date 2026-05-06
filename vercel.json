@@ -1,7 +1,0 @@
-{
-  "functions": {
-    "api/quiz.js": {
-      "runtime": "nodejs20.x"
-    }
-  }
-}
