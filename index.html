@@ -590,7 +590,7 @@ to { opacity: 1; transform: translateY(0); }
 </div>
 
 <script>
-// ── Question bank ──────────────────────────────────────────────
+// Question bank ----------------------------------------------
 const sections = [
   {
     label: "Who You Are",
@@ -600,11 +600,11 @@ const sections = [
         id: "energy",
         type: "single",
         text: "How do you recharge after a long day?",
-        sub: "There's no right answer — just what's true for you.",
+        sub: "There's no right answer - just what's true for you.",
         options: [
           { emoji: "👥", text: "Hanging out with friends or being around people", value: "extrovert" },
-          { emoji: "📚", text: "Having quiet time alone — reading, creating, or just thinking", value: "introvert" },
-          { emoji: "⚖️", text: "A mix — I need both depending on the day", value: "ambivert" },
+          { emoji: "📚", text: "Having quiet time alone - reading, creating, or just thinking", value: "introvert" },
+          { emoji: "⚖️", text: "A mix - I need both depending on the day", value: "ambivert" },
         ]
       },
       {
@@ -615,7 +615,7 @@ const sections = [
           { emoji: "📊", text: "Research everything, make a pros/cons list, think it through logically", value: "logical" },
           { emoji: "💗", text: "Go with my gut and what feels right", value: "intuitive" },
           { emoji: "🗣️", text: "Talk it through with people I trust", value: "collaborative" },
-          { emoji: "🎲", text: "Just decide and adjust as I go — I learn by doing", value: "adaptive" },
+          { emoji: "🎲", text: "Just decide and adjust as I go - I learn by doing", value: "adaptive" },
         ]
       },
       {
@@ -635,7 +635,7 @@ const sections = [
         type: "single",
         text: "How do you feel about uncertainty and risk?",
         options: [
-          { emoji: "🚀", text: "I love it — uncertainty is exciting, not scary", value: "high" },
+          { emoji: "🚀", text: "I love it - uncertainty is exciting, not scary", value: "high" },
           { emoji: "🌊", text: "I can handle some risk if there's a good reason", value: "medium" },
           { emoji: "🏠", text: "I prefer stability and knowing what to expect", value: "low" },
         ]
@@ -679,7 +679,7 @@ const sections = [
           { emoji: "💡", text: "Invent or create something new", value: "innovate" },
           { emoji: "💰", text: "Give me financial security and independence", value: "financial" },
           { emoji: "🎭", text: "Let me express myself creatively", value: "expression" },
-          { emoji: "🧑‍🤝‍🧑", text: "Build real relationships and help individuals", value: "connection" },
+          { emoji: "🧑🤝🧑", text: "Build real relationships and help individuals", value: "connection" },
           { emoji: "🧩", text: "Challenge my brain constantly", value: "intellectual" },
         ]
       },
@@ -687,7 +687,7 @@ const sections = [
         id: "dream",
         type: "text",
         text: "Dream freely: if money didn't matter, what would you spend your days doing?",
-        sub: "Don't overthink it — write what comes to mind first.",
+        sub: "Don't overthink it - write what comes to mind first.",
         placeholder: "e.g. Designing clothes, figuring out how diseases work, making people laugh, building houses, solving crimes..."
       },
     ]
@@ -715,7 +715,7 @@ const sections = [
         id: "worstJob",
         type: "text",
         text: "Describe your nightmare job in a sentence or two.",
-        sub: "Really think about it — what sounds the most miserable?",
+        sub: "Really think about it - what sounds the most miserable?",
         placeholder: "e.g. Staring at spreadsheets all day in a quiet office with no human contact..."
       },
       {
@@ -723,10 +723,10 @@ const sections = [
         type: "single",
         text: "When a project gets really hard or stressful, you usually...",
         options: [
-          { emoji: "💪", text: "Push through — I like a challenge", value: "persevere" },
+          { emoji: "💪", text: "Push through - I like a challenge", value: "persevere" },
           { emoji: "🔄", text: "Step back, regroup, and find a new approach", value: "adaptive" },
           { emoji: "🤝", text: "Reach out to others for help or collaboration", value: "collaborative" },
-          { emoji: "😬", text: "Struggle — I prefer lower-stakes environments", value: "lowstress" },
+          { emoji: "😬", text: "Struggle - I prefer lower-stakes environments", value: "lowstress" },
         ]
       },
     ]
@@ -754,7 +754,7 @@ const sections = [
         type: "single",
         text: "What's your ideal team situation?",
         options: [
-          { emoji: "🦅", text: "I prefer working independently — I work best solo", value: "solo" },
+          { emoji: "🦅", text: "I prefer working independently - I work best solo", value: "solo" },
           { emoji: "🤝", text: "A small, close-knit team where everyone knows each other", value: "small" },
           { emoji: "🏙️", text: "A larger organization with lots of collaboration", value: "large" },
           { emoji: "🎯", text: "Leading or managing a team toward a goal", value: "lead" },
@@ -763,7 +763,7 @@ const sections = [
       {
         id: "roleModel",
         type: "text",
-        text: "Is there someone — real or fictional — whose job sounds amazing to you? Who and why?",
+        text: "Is there someone - real or fictional - whose job sounds amazing to you? Who and why?",
         sub: "This could be a person you know, a celebrity, a character in a show, or anyone.",
         placeholder: "e.g. My aunt who's a nurse because she really makes a difference every day..."
       },
@@ -771,7 +771,7 @@ const sections = [
   }
 ];
 
-// ── State ──────────────────────────────────────────────────────
+// State ------------------------------------------------------
 let currentSection = 0;
 let currentQuestion = 0;
 let answers = {};
@@ -792,7 +792,7 @@ function getTotalAnswered() {
   return count;
 }
 
-// ── Render ─────────────────────────────────────────────────────
+// Render -----------------------------------------------------
 function render() {
   try {
   const q = getQuestion();
@@ -801,7 +801,7 @@ function render() {
   const pct = Math.round((answered / totalQuestions) * 100);
 
   document.getElementById('progressWrap').style.display = 'block';
-  document.getElementById('progressLabel').textContent = `${section.icon} ${section.label} • Q${currentQuestion + 1} of ${section.questions.length}`;
+  document.getElementById('progressLabel').textContent = `${section.icon} ${section.label} * Q${currentQuestion + 1} of ${section.questions.length}`;
   document.getElementById('progressPct').textContent = `${pct}%`;
   document.getElementById('progressFill').style.width = pct + '%';
 
@@ -818,7 +818,7 @@ function render() {
       html += `<button class="option-btn ${sel}" onclick="selectSingle('${q.id}','${opt.value}')">
         <span class="emoji">${opt.emoji}</span>
         <span>${opt.text}</span>
-        <span class="check">${sel ? '✓' : ''}</span>
+        <span class="check">${sel ? 'v' : ''}</span>
       </button>`;
     });
     html += `</div>`;
@@ -837,12 +837,12 @@ function render() {
 
 html += `<div class="nav-row" style="margin-top:28px;">`;
 if (currentSection > 0 || currentQuestion > 0) {
-html += `<button class="btn-back" onclick="goBack()">← Back</button>`;
+html += `<button class="btn-back" onclick="goBack()"><- Back</button>`;
 } else {
 html += `<span></span>`;
 }
 const isLast = currentSection === sections.length - 1 && currentQuestion === sections[currentSection].questions.length - 1;
-html += `<button class="btn-next" onclick="goNext()" id="nextBtn">${isLast ? '✨ See My Results' : 'Next →'}</button>`;
+html += `<button class="btn-next" onclick="goNext()" id="nextBtn">${isLast ? ' See My Results' : 'Next ->'}</button>`;
 html += `</div></div>`;
 
 document.getElementById(‘quizArea’).innerHTML = html;
@@ -901,7 +901,7 @@ currentQuestion = sections[currentSection].questions.length - 1;
 render();
 }
 
-// ── Submit & AI call ───────────────────────────────────────────
+// Submit & AI call —————————————––
 async function submitQuiz() {
 document.getElementById(‘quizArea’).innerHTML = ‘’;
 document.getElementById(‘progressWrap’).style.display = ‘none’;
@@ -918,7 +918,7 @@ ${summary}
 
 Based on substantial research connecting teenage personality profiles to actual career outcomes, recommend exactly 5 career paths for this person. For each career, explain:
 
-1. WHY it fits their specific profile (not generic reasons — reference their actual answers)
+1. WHY it fits their specific profile (not generic reasons - reference their actual answers)
 1. What the day-to-day really looks like
 1. Which of their traits/interests align with it
 1. What steps they could take NOW as a teen to explore it
@@ -978,12 +978,12 @@ document.getElementById(‘resultsScreen’).classList.add(‘visible’);
 const name = answers.dream ? ‘’ : ‘’;
 document.getElementById(‘resultsTitle’).textContent = ‘Your Top 5 Career Matches’;
 document.getElementById(‘resultsIntro’).textContent =
-‘These recommendations are based on research linking your personality type, interests, and work preferences to real career outcomes. Explore them with curiosity — your path may be a mix of several!’;
+‘These recommendations are based on research linking your personality type, interests, and work preferences to real career outcomes. Explore them with curiosity - your path may be a mix of several!’;
 
 const colors = [‘var(–rose)’, ‘var(–lavender)’, ‘var(–sage)’, ‘var(–teal)’, ‘var(–gold)’];
 let html = ‘’;
 careers.forEach((c, i) => {
-html += `<div class="career-card fade-in" style="animation-delay:${i * 0.1}s"> <div class="career-top"> <div class="career-rank">${c.rank}</div> <div> <div class="career-title">${c.title}</div> <div class="career-field">${c.field}</div> </div> </div> <div class="career-desc">${c.description}</div> <div class="career-tags"> ${(c.traitTags || []).map(t =>`<span class="tag trait">✦ ${t}</span>`).join('')} </div> <div class="career-why">💬 <strong>Why this fits you:</strong> ${c.whyFit}</div> <div style="margin-top:16px;"> <div class="explore-label">🔭 Explore it now</div> <div class="explore-items">${c.exploreNow}</div> </div> </div>`;
+html += `<div class="career-card fade-in" style="animation-delay:${i * 0.1}s"> <div class="career-top"> <div class="career-rank">${c.rank}</div> <div> <div class="career-title">${c.title}</div> <div class="career-field">${c.field}</div> </div> </div> <div class="career-desc">${c.description}</div> <div class="career-tags"> ${(c.traitTags || []).map(t =>`<span class="tag trait">* ${t}</span>`).join('')} </div> <div class="career-why">💬 <strong>Why this fits you:</strong> ${c.whyFit}</div> <div style="margin-top:16px;"> <div class="explore-label">🔭 Explore it now</div> <div class="explore-items">${c.exploreNow}</div> </div> </div>`;
 });
 
 document.getElementById(‘careerCards’).innerHTML = html;
@@ -1000,7 +1000,7 @@ document.getElementById(‘progressWrap’).style.display = ‘none’;
 render();
 }
 
-// ── Start ──────────────────────────────────────────────────────
+// Start ——————————————————
 render();
 </script>
 
